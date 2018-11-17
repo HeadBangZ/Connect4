@@ -39,6 +39,7 @@
 			this.Frame.Size = new System.Drawing.Size(700, 600);
 			this.Frame.TabIndex = 0;
 			this.Frame.Paint += new System.Windows.Forms.PaintEventHandler(this.Frame_Paint);
+			this.Frame.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Frame_MouseClick);
 			// 
 			// Connect4
 			// 

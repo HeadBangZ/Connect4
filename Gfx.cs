@@ -10,36 +10,54 @@ namespace connect4
 {
 	class Gfx
 	{
-		private Graphics gfxEngine;
+		private static Graphics gfxEngine;
 
-		private int CanvasWidth { get; } = 700;
-		private int CanvasHeight { get; } = 600;
+		//private int CanvasWidth { get; } = 700;
+		//private int CanvasHeight { get; } = 600;
 
-		//const int CanvasWidth = 700;
-		//const int CanvasHeight = 600;
+		private const int CanvasWidth = 700;
+		private const int CanvasHeight = 600;
 
-		public Gfx(Graphics gfxEngine)
+		public Gfx(Graphics gfxEngineObject)
 		{
-			this.gfxEngine = gfxEngine;
+			gfxEngine = gfxEngineObject;
 			SetupCanvas();
 		}
 
 		public void SetupCanvas()
 		{
 			Brush bg = new SolidBrush(Color.WhiteSmoke);
-			Pen lines = new Pen(Color.Black);
+			Pen lines = new Pen(Color.Black, 1);
 
 			gfxEngine.FillRectangle(bg, new Rectangle(0, 0, 700, 600));
 
 			// rows and columns
-			for (int i = 100; i < CanvasWidth; i += 100)
+			for (int i = 0; i < CanvasHeight; i += 100)
 			{
-				for (int j = 100; j < CanvasHeight; j += 100)
+				for (int j = 0; j <= CanvasWidth; j += 100)
 				{
-					gfxEngine.DrawLine(lines, new Point(i, 0), new Point(i, CanvasHeight));
+					gfxEngine.DrawLine(lines, new Point(j, 0), new Point(j, CanvasWidth));
 				}
 				gfxEngine.DrawLine(lines, new Point(0, i), new Point(CanvasWidth, i));
 			}
+		}
+
+		public static void DrawRed(Point location)
+		{
+			Brush redPaint = new SolidBrush(Color.Red);
+			int xPlacement = location.X * 100;
+			int yPlacement = location.Y * 100;
+
+			gfxEngine.FillRectangle(redPaint, xPlacement + 1, yPlacement + 1, 100 - 1, 100 - 1);
+		}
+
+		public static void DrawYellow(Point location)
+		{
+			Brush redPaint = new SolidBrush(Color.Yellow);
+			int xPlacement = location.X * 100;
+			int yPlacement = location.Y * 100;
+
+			gfxEngine.FillRectangle(redPaint, xPlacement + 1, yPlacement + 1, 100 - 1, 100 - 1);
 		}
 	}
 }

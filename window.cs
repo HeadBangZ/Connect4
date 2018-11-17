@@ -12,7 +12,9 @@ namespace connect4
 {
 	public partial class Connect4 : Form
 	{
-		Gfx engine;
+		private Gfx engine;
+		private Board ConnectFourBoard;
+
 		public Connect4()
 		{
 			InitializeComponent();
@@ -22,6 +24,17 @@ namespace connect4
 		{
 			Graphics ToPass = Frame.CreateGraphics();
 			engine = new Gfx(ToPass);
+
+			ConnectFourBoard = new Board();
+			ConnectFourBoard.InitializeBoard();
+		}
+
+		private void Frame_MouseClick(object sender, MouseEventArgs e)
+		{
+			Point mouseLocation = Cursor.Position;
+
+			mouseLocation = Frame.PointToClient(mouseLocation);
+			ConnectFourBoard.DetectPosition(mouseLocation);
 		}
 	}
 }
