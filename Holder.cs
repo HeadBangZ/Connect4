@@ -9,12 +9,27 @@ namespace connect4
 {
 	class Holder
 	{
-		public const int Red = 0;
-		public const int Yellow = 1;
-		public const int none = 2;
+		private int value = Board.White;
+		private Point location;
 
-		public Point Location { get; set; }
+		public Point GetLocation()
+		{
+			return location;
+		}
 
-		public string None { get; set; }
+		public void SetLocation(Point value)
+		{
+			location = value;
+		}
+
+		public int GetValue()
+		{
+			return value;
+		}
+
+		public void SetValue(int number)
+		{
+			value = number;
+		}
 	}
 }
