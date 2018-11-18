@@ -53,11 +53,11 @@ namespace connect4
 
 		public static void DrawYellow(Point location)
 		{
-			Brush redPaint = new SolidBrush(Color.Yellow);
+			Brush yellowPaint = new SolidBrush(Color.Yellow);
 			int xPlacement = location.X * 100;
 			int yPlacement = location.Y * 100;
 
-			gfxEngine.FillRectangle(redPaint, xPlacement + 1, yPlacement + 1, 100 - 1, 100 - 1);
+			gfxEngine.FillRectangle(yellowPaint, xPlacement + 1, yPlacement + 1, 100 - 1, 100 - 1);
 		}
 	}
 }

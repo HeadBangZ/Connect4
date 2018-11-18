@@ -50,7 +50,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gfx.cs" />
-    <Compile Include="Holder.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="window.cs">
       <SubType>Form</SubType>
     </Compile>

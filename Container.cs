@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace connect4
 {
-	class Holder
+	class Container
 	{
 		private int value = Board.White;
 		private Point location;
