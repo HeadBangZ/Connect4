@@ -22,8 +22,8 @@ namespace connect4
 
 		private void Frame_Paint(object sender, PaintEventArgs e)
 		{
-			Graphics ToPass = Frame.CreateGraphics();
-			engine = new Gfx(ToPass);
+			Graphics GfxToPass = Frame.CreateGraphics();
+			engine = new Gfx(GfxToPass);
 
 			ConnectFourBoard = new Board();
 			ConnectFourBoard.InitializeBoard();

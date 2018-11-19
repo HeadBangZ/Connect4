@@ -24,7 +24,7 @@ namespace connect4
 			SetupCanvas();
 		}
 
-		public void SetupCanvas()
+		public static void SetupCanvas()
 		{
 			Brush bg = new SolidBrush(Color.WhiteSmoke);
 			Pen lines = new Pen(Color.Black, 1);

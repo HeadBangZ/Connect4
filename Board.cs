@@ -103,7 +103,7 @@ namespace connect4
 			// Turn check, and valid placement check
 			if (BoardData[x, y].GetValue() == White)
 			{
-				bool ColumnIsFilled = false;
+				//bool ColumnIsFilled = false;
 
 				if (turn % 2 == 0)
 				{
@@ -116,10 +116,10 @@ namespace connect4
 							DetectFourInARow(Red);
 							break;
 						}
-						else if (col == BoardData.GetLength(1))
-						{
-							ColumnIsFilled = true;
-						}
+						//else if (col == BoardData.GetLength(1))
+						//{
+						//	ColumnIsFilled = true;
+						//}
 					}
 				}
 				else
@@ -133,18 +133,23 @@ namespace connect4
 							DetectFourInARow(Yellow);
 							break;
 						}
-						else if (col == BoardData.GetLength(1))
-						{
-							ColumnIsFilled = true;
-						}
+						//else if (col == BoardData.GetLength(1))
+						//{
+						//	ColumnIsFilled = true;
+						//}
 					}
 				}
-
 				turn++;
 			}
 		}
 
-		public void TheChampionIsPlayer(string playerColor) => MessageBox.Show(playerColor + " Player Wins!");
+		public void TheChampionIsPlayer(string playerColor)
+		{
+			MessageBox.Show(playerColor + " Player Wins!");
+			InitializeBoard();
+			Gfx.SetupCanvas();
+			turn += 2;
+		}
 
 		public void DetectFourInARow(int winnerColor)
 		{
@@ -201,13 +206,13 @@ namespace connect4
 		{
 			bool ColorWin = false;
 
-			if (champion == 0)
+			if (champion == Red)
 			{
 				ColorWin = true;
 				TheChampionIsPlayer("Red");
 				return ColorWin;
 			}
-			else if (champion == 1)
+			else if (champion == Yellow)
 			{
 				ColorWin = true;
 				TheChampionIsPlayer("Yellow");
@@ -215,7 +220,7 @@ namespace connect4
 			}
 			else
 			{
-				return false;
+				return ColorWin;
 			}
 		}
 	}
